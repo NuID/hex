@@ -1,7 +1,9 @@
 {:deps
  {org.clojure/clojurescript {:mvn/version "1.10.520"},
   org.clojure/clojure {:mvn/version "1.10.0"},
-  nuid/bytes {:local/root "/Users/nolan/dev/nuid/bytes"}},
+  nuid/bytes
+  {:git/url "git@github.com:nuid/bytes.git",
+   :sha "afcdccc595982b7bf65bf54bb7ea1e4c6f2c2475"}},
  :aliases
  {:cljfmt
   {:extra-deps
@@ -16,5 +18,7 @@
   :depot/update {:main-opts ["-m" "depot.outdated.main --update"]},
   :repl
   {:extra-deps
-   {nuid/deps {:local/root "/Users/nolan/dev/nuid/deps"}}}},
+   {nuid/deps
+    {:git/url "git@github.com:nuid/deps.git",
+     :sha "82cf5d99c80993c8e7cfe786b06abcae6abc1774"}}}},
  :paths ["src"]}
