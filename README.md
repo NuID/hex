@@ -47,7 +47,7 @@ $ node
 
 ```
 $ shadow-cljs release browser
-## go use ./target/browser/nuid_bn.js in a browser script
+## go use ./target/browser/nuid_hex.js in a browser script
 ```
 
 ## From Java
