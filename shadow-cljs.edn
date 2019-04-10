@@ -1,12 +1,11 @@
 {:builds
  {:browser
-  {:modules {:nuid_hex {:entries [nuid.hex]}}
-   :output-dir "target/browser"
-   :asset-path "target/browser"
-   :target :browser}
-
+  {:modules {:nuid_hex {:entries [nuid.hex]}},
+   :output-dir "target/browser",
+   :asset-path "target/browser",
+   :target :browser},
   :node
-  {:output-to "target/node/nuid_hex.js"
-   :exports-var nuid.hex/exports
-   :target :node-library}}
+  {:output-to "target/node/nuid_hex.js",
+   :exports-var nuid.hex/exports,
+   :target :node-library}},
  :deps {:aliases []}}

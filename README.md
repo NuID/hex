@@ -8,20 +8,20 @@ Cross-platform hex {en,de}coding.
 
 ## From Clojure and ClojureScript
 
-#### tools.deps:
+### tools.deps:
 
 `{nuid/hex {:git/url "https://github.com/nuid/hex" :sha "..."}`
 
-#### usage:
+### usage:
 
 ```
 $ clj # or shadow-cljs node-repl
-(require '[nuid.hex :as hex])
-(def h (hex/encode "🐴")) ;; defaults to reading input as utf8
-h                         ;; => "f09f90b4"
-(hex/decode h)            ;; => array-like: [240 159 144 180] (endianness may vary)
-(hex/to h)                ;; => "🐴"
-(hex/to h :utf16le)       ;; => "鿰뒐"
+=> (require '[nuid.hex :as hex])
+=> (def h (hex/encode "🐴")) ;; defaults to reading input as utf8
+=> h                         ;; => "f09f90b4"
+=> (hex/decode h)            ;; => array-like: [240 159 144 180] (endianness may vary)
+=> (hex/to h)                ;; => "🐴"
+=> (hex/to h :utf16le)       ;; => "鿰뒐"
 ```
 
 ## Notes
@@ -30,7 +30,7 @@ Because this library exists as a common interface over exception facilities, it 
 
 ## From JavaScript
 
-#### node:
+### node:
 
 ```
 $ shadow-cljs release node
@@ -43,7 +43,7 @@ $ node
 > Hex.toString(h, "utf16le")
 ```
 
-#### browser:
+### browser:
 
 ```
 $ shadow-cljs release browser
@@ -66,14 +66,14 @@ The purpose of `nuid.hex` and sibling `nuid` libraries is to abstract over platf
 
 Install [`git-hooks`](https://github.com/icefox/git-hooks) and fire away. Make sure not to get bitten by [`externs`](https://clojurescript.org/guides/externs) if modifying `npm` dependencies.
 
-#### formatting:
+### formatting:
 
 ```
 $ clojure -A:cljfmt            # check
 $ clojure -A:cljfmt:cljfmt/fix # fix
 ```
 
-#### dependencies:
+### dependencies:
 
 ```
 ## check
