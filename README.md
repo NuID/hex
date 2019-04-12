@@ -20,8 +20,8 @@ $ clj # or shadow-cljs node-repl
 => (def h (hex/encode "🐴")) ;; defaults to reading input as utf8
 => h                         ;; => "f09f90b4"
 => (hex/decode h)            ;; => array-like: [240 159 144 180] (endianness may vary)
-=> (hex/to h)                ;; => "🐴"
-=> (hex/to h :utf16le)       ;; => "鿰뒐"
+=> (hex/str h)               ;; => "🐴"
+=> (hex/str h :utf16le)      ;; => "鿰뒐"
 ```
 
 ## Notes
