@@ -10,7 +10,7 @@ Cross-platform hex {en,de}coding.
 
 ### tools.deps:
 
-`{nuid/hex {:git/url "https://github.com/nuid/hex" :sha "..."}`
+`{nuid/hex {:git/url "https://github.com/nuid/hex" :sha "..."}}`
 
 ### usage:
 
