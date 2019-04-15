@@ -62,6 +62,10 @@ Coming soon.
 
 The purpose of `nuid.hex` and sibling `nuid` libraries is to abstract over platform-specific differences and provide a common interface to fundamental dependencies. This allows us to express dependent logic once in pure Clojure(Script), and use it from each of the host platforms (Java, JavaScript, CLR). Along with [`tools.deps`](https://clojure.org/guides/deps_and_cli), this approach yields the code-sharing, circular-dependency avoidance, and local development benefits of a monorepo, with the modularity and orthogonality of an isolated library.
 
+## Licensing
+
+Apache v2.0 or MIT
+
 ## Contributing
 
 Install [`git-hooks`](https://github.com/icefox/git-hooks) and fire away. Make sure not to get bitten by [`externs`](https://clojurescript.org/guides/externs) if modifying `npm` dependencies.
