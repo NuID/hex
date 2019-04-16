@@ -3,7 +3,7 @@
   org.clojure/clojure {:mvn/version "1.10.0"},
   nuid/bytes
   {:git/url "https://github.com/nuid/bytes.git",
-   :sha "f1afc86c6cbeab3dabce6f810bc34af501ffd28c"}},
+   :sha "e59678ca66df7321ef11703026ffcd0e0ba29b4f"}},
  :aliases
  {:cljfmt
   {:extra-deps
@@ -20,5 +20,5 @@
   {:extra-deps
    {nuid/deps
     {:git/url "https://github.com/nuid/deps.git",
-     :sha "735373d03749d29aefc8207aaa15030fd781e91b"}}}},
+     :sha "ed308bdc226607966f5d3a371d0217b6ce61ec1b"}}}},
  :paths ["src"]}
