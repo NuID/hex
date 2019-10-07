@@ -1,9 +1,13 @@
 {:deps
  {org.clojure/clojurescript {:mvn/version "1.10.520"},
   org.clojure/clojure {:mvn/version "1.10.1"},
+  org.clojure/spec.alpha {:mvn/version "0.2.176"},
+  org.clojure/spec-alpha2
+  {:git/url "https://github.com/clojure/spec-alpha2",
+   :sha "2a0a7c49c86e31b528be857ed004a4931a0c2551"},
   nuid/bytes
   {:git/url "https://github.com/nuid/bytes.git",
-   :sha "93b7ea3e269ce7f8b5f76cf388ec4bab84304443"}},
+   :sha "0acd21917c00af6e8157896a06a7eb91b363e4a8"}},
  :aliases
  {:cljfmt
   {:extra-deps
@@ -16,10 +20,10 @@
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}},
    :main-opts ["-m" "depot.outdated.main"]},
   :depot/update {:main-opts ["-m" "depot.outdated.main --update"]},
-  :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.40"}}},
+  :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.55"}}},
   :repl
   {:extra-deps
    {nuid/deps
     {:git/url "https://github.com/nuid/deps.git",
-     :sha "6af0c2207e7b4bd4e0efc369ed69ab65f8e1cd74"}}}},
+     :sha "343a267df77b08124caf001c0a49916c4b2b7a8a"}}}},
  :paths ["src"]}
