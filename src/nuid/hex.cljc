@@ -1,19 +1,55 @@
 (ns nuid.hex
+  (:refer-clojure :exclude [str])
   (:require
    [clojure.string :as str]
    [nuid.bytes :as bytes]
-   #?@(:cljs [["buffer" :as b]]))
-  (:refer-clojure :exclude [str]))
+   #?@(:clj
+       [[clojure.spec-alpha2 :as s]]
+       :cljs
+       [[clojure.spec.alpha :as s]
+        ["buffer" :as b]])))
 
-(defn prefixed [h] (if (str/starts-with? h "0x") h (clojure.core/str "0x" h)))
-(defn unprefixed [h] (if (str/starts-with? h "0x") (subs h 2) h))
+(defn prefixed
+  [h]
+  (if (str/starts-with? h "0x")
+    h
+    (clojure.core/str "0x" h)))
+
+(defn unprefixed
+  [h]
+  (if (str/starts-with? h "0x")
+    (subs h 2)
+    h))
 
 (defprotocol Hexable
-  (encode [x] [x charset]))
+  (encode
+    [x]
+    [x charset]))
 
 (defprotocol Hex
   (decode [h])
-  (str [h] [h charset]))
+  (str
+    [h]
+    [h charset]))
+
+(s/def ::encoded
+  (s/and string?
+         (fn [s] (re-matches #"^0[xX]?[a-fA-F0-9]+$" s))))
+
+;; 2019.10.01 These are a strange fit for the `nuid.hex` namespace;
+;; they're here because we may not want all of Web3j(s) to get them.
+;; This only matters in lambdas that push the 50MB limit, like ours.
+;; Someday these will find a more permanent home.
+(s/def :ethereum/nil-transaction-id
+  #{"0x0000000000000000000000000000000000000000000000000000000000000000"
+      "0000000000000000000000000000000000000000000000000000000000000000"})
+
+(s/def :ethereum/transaction-id
+  (s/and ::encoded
+         (fn [txid] (and (not (s/valid? :ethereum/nil-transaction-id txid))
+                         (or (= (count txid) 64)
+                             (and (= (count txid) 66)
+                                  (str/starts-with? txid "0x")))))))
 
 #?(:clj
    (extend-protocol Hexable
@@ -39,12 +75,12 @@
 
 #?(:cljs
    (extend-protocol Hexable
-     js/Buffer
+     b/Buffer
      (encode
        ([x] (encode x nil))
        ([x _] (.toString x "hex")))
 
-     js/Array
+     array
      (encode
        ([x] (encode (b/Buffer.from x)))
        ([x _] (encode (b/Buffer.from x))))
@@ -62,8 +98,4 @@
        ([h] (bytes/str (decode h)))
        ([h charset] (bytes/str (decode h) charset)))))
 
-#?(:cljs
-   (def exports
-     #js {:encode #(encode %1 (or (keyword %2) :utf8))
-          :toString #(str %1 (or (keyword %2) :utf8))
-          :decode decode}))
+#?(:cljs (def exports #js {}))
