@@ -1,7 +1,6 @@
 (ns nuid.hex
   (:refer-clojure :exclude [str])
   (:require
-   [clojure.string :as str]
    [nuid.bytes :as bytes]
    #?@(:clj
        [[clojure.spec-alpha2 :as s]]
@@ -11,13 +10,13 @@
 
 (defn prefixed
   [h]
-  (if (str/starts-with? h "0x")
+  (if (clojure.string/starts-with? h "0x")
     h
     (clojure.core/str "0x" h)))
 
 (defn unprefixed
   [h]
-  (if (str/starts-with? h "0x")
+  (if (clojure.string/starts-with? h "0x")
     (subs h 2)
     h))
 
@@ -32,9 +31,11 @@
     [h]
     [h charset]))
 
+(def regex #"^0[xX]?[a-fA-F0-9]+$")
+
 (s/def ::encoded
   (s/and string?
-         (fn [s] (re-matches #"^0[xX]?[a-fA-F0-9]+$" s))))
+         (fn [s] (re-matches regex s))))
 
 ;; 2019.10.01 These are a strange fit for the `nuid.hex` namespace;
 ;; they're here because we may not want all of Web3j(s) to get them.
@@ -49,7 +50,7 @@
          (fn [txid] (and (not (s/valid? :ethereum/nil-transaction-id txid))
                          (or (= (count txid) 64)
                              (and (= (count txid) 66)
-                                  (str/starts-with? txid "0x")))))))
+                                  (clojure.string/starts-with? txid "0x")))))))
 
 #?(:clj
    (extend-protocol Hexable
