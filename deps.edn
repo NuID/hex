@@ -1,15 +1,15 @@
 {:deps
  {org.clojure/clojure {:mvn/version "1.10.1"},
-  org.clojure/spec-alpha2
+  org.clojure/alpha.spec
   {:git/url "https://github.com/clojure/spec-alpha2",
-   :sha "de38650874c6f0bc19e7755feab4d65b3fffb268"},
+   :sha "8a5f96513582343c68e64686e2f0bd2c44adbe94"},
   nuid/bytes
   {:git/url "https://github.com/nuid/bytes.git",
-   :sha "c79a24f02700e5d430f6dd91e59de399bd2cd09a"}},
+   :sha "d4bbf0382fc404c525064a845892996a95cad7dd"}},
  :aliases
  {:cljs
   {:extra-deps
    {org.clojure/clojurescript {:mvn/version "1.10.597"},
     org.clojure/spec.alpha {:mvn/version "0.2.176"},
-    thheller/shadow-cljs {:mvn/version "2.8.74"}}}},
+    thheller/shadow-cljs {:mvn/version "2.8.83"}}}},
  :paths ["src"]}

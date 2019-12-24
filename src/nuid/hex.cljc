@@ -3,7 +3,7 @@
   (:require
    [nuid.bytes :as bytes]
    #?@(:clj
-       [[clojure.spec-alpha2 :as s]]
+       [[clojure.alpha.spec :as s]]
        :cljs
        [[clojure.spec.alpha :as s]
         ["buffer" :as b]])))
