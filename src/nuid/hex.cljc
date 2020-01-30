@@ -39,7 +39,6 @@
 
 ;; 2019.10.01 These are a strange fit for the `nuid.hex` namespace;
 ;; they're here because we may not want all of Web3j(s) to get them.
-;; This only matters in lambdas that push the 50MB limit, like ours.
 ;; Someday these will find a more permanent home.
 (s/def :ethereum/nil-transaction-id
   #{"0x0000000000000000000000000000000000000000000000000000000000000000"
