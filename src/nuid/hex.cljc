@@ -38,9 +38,17 @@
         (= (count id) 66)
         (string/starts-with? id "0x")))))))
 
-(def encode proto/encode)
-(def decode proto/decode)
-(def str    proto/str)
+(defn encode
+  ([x]         (proto/encode x))
+  ([x charset] (proto/encode x charset)))
+
+(defn decode
+  [h]
+  (proto/decode h))
+
+(defn str
+  ([h]         (proto/str h))
+  ([h charset] (proto/str h charset)))
 
 (def prefixed   lib/prefixed)
 (def unprefixed lib/unprefixed)
