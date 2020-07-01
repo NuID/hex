@@ -19,11 +19,11 @@ Cross-platform hex {en,de}coding.
 ```
 $ clj # or shadow-cljs node-repl
 => (require '[nuid.hex :as hex])
-=> (def h (hex/encode "🐴")) ;; defaults to reading input as utf8
-=> h                         ;; => "f09f90b4"
-=> (hex/decode h)            ;; => array-like: [240 159 144 180] (endianness may vary)
-=> (hex/str h)               ;; => "🐴"
-=> (hex/str h :utf16le)      ;; => "鿰뒐"
+=> (def h (hex/encode "🐴"))    ;; defaults to reading input as utf8
+=> h                            ;; => "f09f90b4"
+=> (hex/decode h)               ;; => array-like: [240 159 144 180] (endianness may vary)
+=> (hex/str h)                  ;; => "🐴"
+=> (hex/str h :charset/utf16le) ;; => "鿰뒐"
 ```
 
 ## Licensing
