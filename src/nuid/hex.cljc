@@ -1,12 +1,11 @@
 (ns nuid.hex
   (:refer-clojure :exclude [str])
   (:require
+   [clojure.spec.alpha :as s]
    [clojure.string :as string]
    [nuid.hex.impl]
    [nuid.hex.lib :as lib]
-   [nuid.hex.proto :as proto]
-   #?@(:clj  [[clojure.alpha.spec :as s]]
-       :cljs [[clojure.spec.alpha :as s]])))
+   [nuid.hex.proto :as proto]))
 
 (def regex #"^0[xX]?[a-fA-F0-9]+$")
 
