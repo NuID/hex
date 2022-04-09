@@ -2,7 +2,7 @@
  {org.clojure/clojure {:mvn/version "1.10.1"},
   nuid/bytes
   {:git/url "https://github.com/nuid/bytes.git",
-   :sha "c6022e343afb77d992934212dd178b12a0145bf1"}},
+   :sha "3c3e37b94bb9161cc55986e3f5c22030c7f6f435"}},
  :aliases
  {:cljs {:extra-deps {thheller/shadow-cljs {:mvn/version "2.11.23"}}}},
  :paths ["src"]}
